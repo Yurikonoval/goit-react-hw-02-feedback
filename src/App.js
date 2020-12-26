@@ -29,6 +29,8 @@ class App extends React.Component {
     return this.countTotalFeedback() !== 0 ? percents : 0;
   }
 
+  stateKeys = Object.keys(this.state);
+
   render() {
     const goodCount = this.state.good;
     const neutralCount = this.state.neutral;
@@ -40,7 +42,7 @@ class App extends React.Component {
       <>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            options={Object.keys(this.state)}
+            options={this.stateKeys}
             onLeaveFeedback={this.leaveFeedback}
           />
         </Section>
